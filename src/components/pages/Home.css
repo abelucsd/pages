@@ -1,0 +1,8 @@
+.intro {
+    background-color: grey;
+    height: calc(100vh - var(--navbar-height));
+}
+
+.sample-cards {
+    height: 50vh;
+}

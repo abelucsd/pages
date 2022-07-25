@@ -1,0 +1,27 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    height: 25vh;
+    width: 25vh;
+    border: solid .5rem black;
+    border-radius: 2rem;
+}
+
+.card-title {
+    align-self: flex-start;
+    margin: 1rem 0 0 1rem;    
+    font-size: 1.8rem;    
+}
+
+.card-quote {
+    font-size: 1.5rem;
+}
+
+.card-created {    
+    align-self: flex-end;
+    margin: auto 2rem 1rem 0;
+    font-size: 1.25rem;
+}

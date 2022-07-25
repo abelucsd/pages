@@ -1,0 +1,24 @@
+.navbar {
+    height: var(--navbar-height);    
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;    
+}
+
+.title {        
+    margin-left: 1rem;
+}
+
+.nav-links-container {
+    list-style: none;    
+    display: flex;
+    gap: 1rem;
+    margin-right: 1rem;
+}
+
+.nav-links-container > li > * {
+    color: white;    
+    text-decoration: none;
+}

@@ -1,3 +1,7 @@
+:root {
+  --navbar-height: 8vh;    
+}
+
 .App {
   text-align: center;
 }
