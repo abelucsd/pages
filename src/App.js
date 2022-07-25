@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './components/pages/Home';
 import Articles from './components/pages/Articles';
 import Card from './components/Card';
+import CreateArticle from './components/pages/CreateArticle';
 
 function App() {
   return (    
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/pages' element={<Articles/>}/>
+          <Route path='/create-article' element={<CreateArticle/>}/>
           <Route path='/sample-card' element={<Card/>}/>
         </Routes>      
       </Router>

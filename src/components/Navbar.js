@@ -14,6 +14,9 @@ function Navbar() {
                 <li className='articles-link'>
                     <Link to='/articles'>Articles</Link>
                 </li>
+                <li className='create-article'>
+                    <Link to='create-article'>Create an Article</Link>
+                </li>
                 <li className='sample-card'>
                     <Link to='/sample-card'>Card Sample</Link>
                 </li>
