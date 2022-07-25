@@ -1,0 +1,12 @@
+.cards {
+    display: flex;
+    justify-content: center;      
+}
+
+.card-list-container {
+    margin-top: 10vh;    
+    color: black;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);    
+    gap: 7rem;
+}

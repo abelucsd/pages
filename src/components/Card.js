@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import './Card.css'
 
-function Card() {
-  const [title, setTitle] = useState('Sample Title')
-  const [articleQuote, setArticleQuote] = useState('Hello, my name is Angelo.')
-  const [dateCreated, setDateCreated] = useState('1/1/2022')
+function Card(props) {
+  const [title, setTitle] = useState(props.title)
+  const [articleQuote, setArticleQuote] = useState(props.articleQuote)
+  const [dateCreated, setDateCreated] = useState(props.dateCreated)
 
   return (
     <div className='card'>

@@ -1,8 +1,12 @@
 import React from 'react'
+import Cards from '../Cards'
+import './Articles.css'
 
 function Articles() {
   return (
-    <div>Articles</div>
+    <div className='articles-page'>
+      <Cards/>
+    </div>
   )
 }
 
