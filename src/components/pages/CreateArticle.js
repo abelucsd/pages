@@ -12,6 +12,8 @@ function CreateArticle() {
   const [articleTitle, setArticleTitle] = useState('')
   const [articleContent, setArticleContent] = useState('')
   const [articleDate, setArticleDate] = useState('') // date time?
+  const [numArticles, setNumArticles] = useState(0)
+  const [allArticles, setAllArticles] = useState([])
 
   const articleTitleChange = (e) => {
     setArticleTitle(e.target.value)
@@ -22,29 +24,49 @@ function CreateArticle() {
   }
 
   const postArticle = () => {    
-    setArticleDate(new Date())
+    setArticleDate(new Date())    
     console.log(articleDate)       
-    let articlesData = []
+
+    let newArticle = {
+      id: numArticles + 1,
+      title: articleTitle,
+      content: articleContent,
+      date: articleDate
+    }
+
+    let toJson = [...allArticles, newArticle]    
+    setAllArticles(previousState => [...previousState, newArticle])
+    setNumArticles(numArticles + 1)    
+    console.log(JSON.stringify(toJson))
     
+    fetch("http://localhost:5000/receive", {
+          method: "POST",
+          headers: {
+            'Content-type': 'application/json'
+          },
+          body: JSON.stringify(toJson)
+    })
+    .then(result => {
+      console.log(result)
+    })    
+
+  }
+
+  useEffect(() => {
     fetch("http://localhost:5000/api").then(
       response => {        
         return response.text()
       }   
     ).then(
-      data => {
-        articlesData = JSON.parse(data)
-        let newArticle = {
-          //id: articlesData[articlesData.length-1].id + 1,
-          title: articleTitle,
-          content: articleContent,
-          date: articleDate
-        }
-        console.log(newArticle)      
+      data => {        
+        let articlesData = JSON.parse(data)
+        let lenData = 0
+        lenData = articlesData.articlesRepository.length
+        setNumArticles(articlesData.articlesRepository[lenData-1].id)        
+        setAllArticles(articlesData.articlesRepository)
       }
     )
-    
-
-  }
+  }, [])
 
   return (
     <div className='create-article-page'>
