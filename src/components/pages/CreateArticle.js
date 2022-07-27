@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Articles from './Articles'
-import articlesRepositoryData from './articlesRepository.json'
+import Axios from 'axios'
+import fetch from 'node-fetch'
 
 // Create a form
 // form should insert into json file
@@ -21,23 +22,27 @@ function CreateArticle() {
   }
 
   const postArticle = () => {    
-    setArticleDate(new Date())        
-
-    let articlesData = articlesRepositoryData
+    setArticleDate(new Date())
+    console.log(articleDate)       
+    let articlesData = []
     
-    let newArticle = {
-      id: articlesData[articlesData.length-1].id + 1,
-      title: articleTitle,
-      content: articleContent,
-      date: articleDate
-    }
-
-    articlesData.push(newArticle)
+    fetch("http://localhost:5000/api").then(
+      response => {        
+        return response.text()
+      }   
+    ).then(
+      data => {
+        articlesData = JSON.parse(data)
+        let newArticle = {
+          //id: articlesData[articlesData.length-1].id + 1,
+          title: articleTitle,
+          content: articleContent,
+          date: articleDate
+        }
+        console.log(newArticle)      
+      }
+    )
     
-    
-    console.log(newArticle)
-
-    // then write to JSON
 
   }
 
