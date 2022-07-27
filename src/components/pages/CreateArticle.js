@@ -11,7 +11,7 @@ import fetch from 'node-fetch'
 function CreateArticle() {
   const [articleTitle, setArticleTitle] = useState('')
   const [articleContent, setArticleContent] = useState('')
-  const [articleDate, setArticleDate] = useState('') // date time?
+  const [articleDate, setArticleDate] = useState('')
   const [numArticles, setNumArticles] = useState(0)
   const [allArticles, setAllArticles] = useState([])
 
@@ -23,8 +23,7 @@ function CreateArticle() {
     setArticleContent(e.target.value)
   }
 
-  const postArticle = () => {    
-    setArticleDate(new Date())    
+  const postArticle = () => {        
     console.log(articleDate)       
 
     let newArticle = {
@@ -53,6 +52,13 @@ function CreateArticle() {
   }
 
   useEffect(() => {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = mm + '/' + dd + '/' + yyyy;
+    setArticleDate(today) // edit this
+
     fetch("http://localhost:5000/api").then(
       response => {        
         return response.text()
