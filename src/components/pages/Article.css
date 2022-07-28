@@ -1,4 +1,35 @@
 .article-page {
-    background-color: grey;
+    background-color: white;
     height: calc(100vh - var(--navbar-height));
+}
+
+.article-container {
+    margin: 5vh 10vh;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.article-header {
+    font-size: 3rem;
+}
+
+.article-date {    
+    align-self: flex-start;
+    font-size: 1rem;
+}
+.article-date::before {
+    content: 'Date Published: ';
+    left: 0;
+}
+
+.article-content {
+    font-size: 1.2rem;
+}
+
+@media (min-width: 80em) {
+    .article-container {
+        margin: 5vh 20vh;
+    }
 }

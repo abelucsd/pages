@@ -25,9 +25,9 @@ function Article() {
   return (    
     <div className='article-page'>
         <div className="article-container">
-            <div className="article-header">{article?.title}</div>
+            <div className="article-header">{article?.title}</div>            
             <div className="article-date">{article?.datePublished}</div>
-            <div className="article-content">{article?.content}</div>
+            <div className="article-content">{article?.content}</div>            
         </div>
     </div>
   )
