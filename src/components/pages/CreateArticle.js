@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Articles from './Articles'
-import Axios from 'axios'
+import './CreateArticle.css'
 import fetch from 'node-fetch'
 
 // Create a form
@@ -11,6 +10,7 @@ import fetch from 'node-fetch'
 function CreateArticle() {
   const [articleTitle, setArticleTitle] = useState('')
   const [articleContent, setArticleContent] = useState('')
+  const [articleQuote, setArticleQuote] = useState('')
   const [articleDate, setArticleDate] = useState('')
   const [numArticles, setNumArticles] = useState(0)
   const [allArticles, setAllArticles] = useState([])
@@ -23,6 +23,10 @@ function CreateArticle() {
     setArticleContent(e.target.value)
   }
 
+  const articleQuoteChange = (e) => {
+    setArticleQuote(e.target.value)
+  }
+
   const postArticle = () => {        
     console.log(articleDate)       
 
@@ -30,6 +34,7 @@ function CreateArticle() {
       id: numArticles + 1,
       title: articleTitle,
       content: articleContent,
+      quote: articleQuote,
       date: articleDate
     }
 
@@ -77,17 +82,22 @@ function CreateArticle() {
   return (
     <div className='create-article-page'>
       <div className="create-article-header">Create an Article</div>    
-      <label>
-        Title:
-        <input type="text" id="article-title" className="article-title" onChange={articleTitleChange} />
+      <label className="create-article-title">
+        <div>Title</div>
+        <input type="text" onChange={articleTitleChange} />
       </label>
 
-      <label>
-        Content: 
-        <input type="text" id="article-content" className="article-content" onChange={articleContentChange} />
+      <label className="create-article-content">
+        <div>Content</div>
+        <textarea type="text" onChange={articleContentChange}/>
       </label>
 
-      <button onClick={postArticle}>Post</button>
+      <label className="create-article-quote">
+        <div>Quote</div>
+        <textarea type="text" onChange={articleQuoteChange} placeholder="Summary of the post" />
+      </label>      
+
+      <button class="submit-article" onClick={postArticle}>Post</button>
 
     </div>
 

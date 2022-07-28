@@ -1,0 +1,91 @@
+
+
+.create-article-page {
+    margin: 5rem;
+    margin: 3rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    
+    --header-fonts: 1.3rem;
+    --text-padding-sides: .5rem;
+}
+
+.create-article-header {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.create-article-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+    
+}
+
+.create-article-title > div {
+    font-size: var(--header-fonts);
+}
+.create-article-title > input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: .5rem;
+    padding: 0 var(--text-padding-sides);
+}
+
+.create-article-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+}
+
+.create-article-content > div {
+    font-size: var(--header-fonts);
+}
+.create-article-content > textarea {
+    box-sizing: border-box;
+    width: 100%;
+    height: 50vh;
+    border: 1px solid black;
+    border-radius: 1rem;    
+
+    padding: 1rem var(--text-padding-sides);
+    
+}
+
+.create-article-quote {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+}
+
+.create-article-quote > div {
+    font-size: var(--header-fonts)
+}
+.create-article-quote > textarea {
+    box-sizing: border-box;
+    width: 75%;
+    height: 5vh;
+    border: 1px solid black;
+    border-radius: .5rem;
+    padding: .2rem var(--text-padding-sides);
+}
+
+.submit-article {
+    align-self: flex-end;    
+    padding: .5rem 1rem;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    border: transparent;
+    border-radius: .5rem;
+}
