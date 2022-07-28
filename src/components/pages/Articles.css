@@ -1,4 +1,4 @@
 .articles-page {
-    background-color: grey;
+    background-color: white;
     height: calc(100vh - var(--navbar-height));
 }

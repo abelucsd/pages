@@ -1,12 +1,36 @@
 .cards {
     display: flex;
-    justify-content: center;      
+    justify-content: center;    
+    width: 100%;
 }
 
 .card-list-container {
-    margin-top: 10vh;    
+    margin: 10vh 10vh;
     color: black;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);    
-    gap: 7rem;
+    grid-template-columns: repeat(2, 1fr);    
+    gap: 2rem;
+    width: 100vh;
+}
+@media (min-width: 20em) {
+    .card-list-container {        
+        color: black;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);    
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 80em){
+    .card-list-container {          
+        color: black;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);    
+        gap: 7rem;
+    }
+}
+
+.card-item {
+    text-decoration: none;
+    color: black;
 }

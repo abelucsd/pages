@@ -35,7 +35,7 @@ function CreateArticle() {
       title: articleTitle,
       content: articleContent,
       quote: articleQuote,
-      date: articleDate
+      datePublished: articleDate
     }
 
     let toJson = [...allArticles, newArticle]    

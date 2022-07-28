@@ -53,10 +53,10 @@ function Cards(props) {
       <ul className='card-list-container'>         
         {cardArray.map((article) => (        
           <div key={article.id}>               
-            <Link to={`${article.id}`}>
+            <Link className='card-item' to={`${article.id}`}>
               <Card 
                 title={article.title}
-                articleQuote = {article.content}
+                articleQuote = {article.quote}
                 dateCreated = {article.datePublished}
               />         
             </Link>   
