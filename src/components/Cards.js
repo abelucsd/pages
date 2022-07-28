@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import './Cards.css'
 import Card from './Card'
+import Home from './pages/Home'
+import Article from './pages/Article'
+
+import { BrowserRouter as Router, Routes, Route, Link, useMatch, matchPath } from 'react-router-dom'
 
 const articleObjects = [
   {
@@ -25,26 +29,43 @@ const articleObjects = [
 
 function Cards(props) {
   const [numCards, setNumCards] = useState(0)
-  const [cardArray, setCardArray] = useState(articleObjects)
+  const [cardArray, setCardArray] = useState(articleObjects)  
 
   useEffect(() => {
-    
+    fetch("http://localhost:5000/api").then(
+      response => {        
+        return response.text()
+      }   
+    ).then(
+      data => {        
+        let articlesData = JSON.parse(data)
+        let lenData = 0
+        lenData = articlesData.articlesRepository.length
+        setNumCards(articlesData.articlesRepository[lenData-1].id)        
+        setCardArray(articlesData.articlesRepository)
+      }
+    )    
   }, [])
 
   return (
-    <div className='cards'>            
-
+    <div className='cards'>  
+      
       <ul className='card-list-container'>         
         {cardArray.map((article) => (        
           <div key={article.id}>               
-            <Card 
-              title={article.title}
-              articleQuote = {article.content}
-              dateCreated = {article.datePublished}
-            />
+            <Link to={`${article.id}`}>
+              <Card 
+                title={article.title}
+                articleQuote = {article.content}
+                dateCreated = {article.datePublished}
+              />         
+            </Link>   
           </div>
         ))}
       </ul>
+        
+                     
+
     </div>
   )
 }
