@@ -16,11 +16,11 @@ User could create an article with a title, content, date, and a quote to display
 
 ### Tools
 
-####Frontend
+Frontend
 * React.js
 * CSS
 * React Router
 
-####Backend
+Backend
 * Express.js
 * Json file database (holds the articles)
